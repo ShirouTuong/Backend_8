@@ -1,0 +1,74 @@
+/* Global Styles */
+body {
+    background-color: #f8f9fa;
+    font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+    color: #212529;
+}
+
+/* VÙNG 1: AUTHOR META-INFO (Flexbox 1D) */
+.author-section {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap; /* Tự động rớt dòng trên màn hình siêu nhỏ */
+    gap: 1rem;
+}
+
+.author-avatar {
+    width: 60px;
+    height: 60px;
+    object-fit: cover;
+}
+
+/* VÙNG 2: MOSAIC GALLERY (CSS Grid 2D) */
+.mosaic-gallery {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    grid-template-rows: repeat(2, 200px);
+    gap: 15px;
+}
+
+.photo-item {
+    position: relative;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.photo-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.photo-caption {
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+    background-color: rgba(0, 0, 0, 0.6);
+    color: #fff;
+    padding: 4px 10px;
+    border-radius: 4px;
+    font-size: 0.85rem;
+}
+
+/* Photo Main chiếm 2 hàng */
+.photo-main {
+    grid-row: span 2;
+}
+
+/* RESPONSIVE CSS GRID */
+@media (max-width: 768px) {
+    .mosaic-gallery {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto;
+    }
+
+    .photo-main {
+        grid-row: span 1;
+        height: 250px;
+    }
+
+    .photo-sub-1, .photo-sub-2 {
+        height: 180px;
+    }
+}
